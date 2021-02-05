@@ -1,8 +1,18 @@
 <style>
-table, th, td {
-  border: 1px solid black;
+table, td {
+  border: .25px solid grey;
   border-collapse: collapse;
-  width: 65%;
+  width: 100%;
+  font-size: 18px;
+  color: #ffffff;
+  font-family: 'Courier New', monospace;
+}
+th {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    font-size: 21px;
+    font-family: Georgia, serif;
+    color: #ffd700;
 }
 
 table.center {
@@ -11,13 +21,16 @@ table.center {
 }
 
 tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: #000000;
+}
+tr:nth-child(odd) {
+  background-color: #000000;
 }
 
 </style>
 <template>
     <div class="container">
-        <h2  align="center">PLANES</h2>
+    <h1  align="center"> </h1>
         <table class="center">
             <thead>
             <tr>
@@ -25,6 +38,8 @@ tr:nth-child(even) {
                 <th>DEPARTURE</th>
                 <th>DESTINATION</th>
                 <th>STATUS</th>
+                <th>ID</th>
+                <th>Rev</th>
             </tr>
             </thead>
             <tbody>
@@ -33,6 +48,8 @@ tr:nth-child(even) {
                   <td align="center">{{ item.planeObject.departure }}</td>
                   <td align="center">{{ item.planeObject.destination }}</td>
                   <td align="center">{{ item.planeObject.status }}</td>
+                  <td>{{ item._id }}</td>
+                  <td>{{ item._rev }}</td>
               </tr>
             </tbody>
         </table>
