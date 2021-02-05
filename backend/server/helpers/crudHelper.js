@@ -49,17 +49,35 @@ module.exports = {
      * @async
      * @return {Array}
      */
-    updatePlaneStatus() {
+    updatePlaneStatus(database, status) {
     // Implement update logic here
-        return false
+    //same as the creating a plane status, except we need to pass in _id and _rev too
+        return new Promise((resolve, reject) => {
+            _cloudant.updateData(
+                database,
+                status.planeObject,
+                status._id,
+                status._rev
+            ).then(result => {
+                resolve(result);
+            }).catch(err => reject(err));
+        });
     },
     /**
      * @method deletePlaneStatus
      * @async
      * @return {Array}
      */
-    deletePlaneStatus() {
+    deletePlaneStatus(database, status) {
     // Implement delete logic here
-        return false
+        return new Promise((resolve, reject) => {
+            _cloudant.deleteData(
+                database,
+                status._id,
+                status._rev
+            ).then(result => {
+                resolve(result);
+            }).catch(err => reject(err));
+        });
     }
 };

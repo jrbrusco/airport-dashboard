@@ -1,25 +1,43 @@
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 65%;
+}
+
+table.center {
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+</style>
 <template>
     <div class="container">
-        <h2>Planes</h2>
-        <table class="table table-bordered">
+        <h2  align="center">PLANES</h2>
+        <table class="center">
             <thead>
             <tr>
-                <th>Plane Number</th>
-                <th>Departure</th>
-                <th>Destination</th>
-                <th>Status</th>
+                <th>PLANE NUMBER</th>
+                <th>DEPARTURE</th>
+                <th>DESTINATION</th>
+                <th>STATUS</th>
             </tr>
             </thead>
             <tbody>
               <tr v-for="item in planes" :key="item.id">
-                  <td>{{ item.planeObject.plane_number }}</td>
-                  <td>{{ item.planeObject.departure }}</td>
-                  <td>{{ item.planeObject.destination }}</td>
-                  <td>{{ item.planeObject.status }}</td>
+                  <td align="center">{{ item.planeObject.plane_number }}</td>
+                  <td align="center">{{ item.planeObject.departure }}</td>
+                  <td align="center">{{ item.planeObject.destination }}</td>
+                  <td align="center">{{ item.planeObject.status }}</td>
               </tr>
             </tbody>
         </table>
     </div>
+
 </template>
 
 <script>

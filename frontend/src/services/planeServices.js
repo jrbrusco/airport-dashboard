@@ -16,13 +16,21 @@ export async function getAllPlanes() {
 }
 
 // Calls the update endpoint to update a plane's status
-export async function updatePlane() {
-    // Implement update request here
-    return false
+export async function updatePlane(data) {
+    const response = await fetch(`/api/planestatus/update`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({planeObject: data})
+      })
+    return await response.json();
 }
 
 // Calls the delete endpoint to delete a plane's status
-export async function deletePlane() {
-    // Implement delete request here
-    return false
+export async function deletePlane(data) {
+    const response = await fetch(`/api/planestatus/delete`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({planeObject: data})
+      })
+    return await response.json();
 }

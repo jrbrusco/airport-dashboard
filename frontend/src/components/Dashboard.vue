@@ -4,6 +4,7 @@
     <div class="container mrgnbtm">
           <div class="row">
             <div class="col-md-8">
+                <h1 align="center">AIRPORT DASHBOARD</h1>
                 <AddPlane @addPlane="addPlane($event)" />
             </div>
           </div>
@@ -13,6 +14,12 @@
     </div>
   </div>
 </template>
+
+var icon = L.icon({
+    iconUrl: './assets/plane.png',
+    iconSize:     [25, 25],
+    iconAnchor:   [12, 12]
+});
 
 <script>
 import AddPlane from './AddPlane.vue'
@@ -25,10 +32,12 @@ export default {
     AddPlane,
     Planes
   },
+  
   data() {
       return {
           planes: [],
-          numberOfPlanes: 0
+          numberOfPlanes: 0,
+          text: ''
       }
   },
   methods: {
